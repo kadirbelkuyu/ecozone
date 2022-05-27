@@ -1,8 +1,9 @@
+
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 from flask import Flask, render_template
-
+from v2 import getMap
 DEVELOPMENT_ENV  = True
 
 app = Flask(__name__)
@@ -16,7 +17,7 @@ app_data = {
     "keywords":     "ecozone"
 }
 
-from v2 import getMap
+# from v2 import getMap
 
 @app.route('/')
 def index():

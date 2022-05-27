@@ -16,15 +16,15 @@ class getMap:
 
         # Set working directory to earth-analytics
         os.chdir(os.path.join(et.io.HOME, 'earth-analytics', 'data'))
-    def getmap(self):
-        self.m = folium.Map(location=[37.871540, 32.498914], 
-                    tiles = 'Stamen Terrain',zoom_start=12)
+    def getmap():
+        m = folium.Map(location=[37.871540, 32.498914],
+                    tiles = 'Stamen Terrain',zoom_start=12, height=500)
 
         # Add marker for Boulder, CO
         folium.Marker(
             location=[37.871540, 32.498914], # coordinates for the marker
             popup='Earth Lab at CU Boulder', # pop-up label for the marker
             icon=folium.Icon()
-        ).add_to(self.m)
-        folium.TileLayer('openstreetmap').add_to(self.m)
-        return self.m
+        ).add_to(m)
+        folium.TileLayer('openstreetmap').add_to(m)
+        return m
