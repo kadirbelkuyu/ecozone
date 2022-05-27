@@ -16,10 +16,14 @@ app_data = {
     "keywords":     "ecozone"
 }
 
+from v2 import getMap
 
 @app.route('/')
 def index():
-    return render_template('index.html', app_data=app_data)
+    map = getMap.getmap()
+    print(map)
+    #return render_template('index.html', app_data=app_data)
+    return map._repr_html_()
 
 
 @app.route('/about')

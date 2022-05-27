@@ -1,0 +1,6 @@
+flask
+folium
+rioxarray
+earthpy
+matplotlib
+ipython
