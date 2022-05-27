@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div class="jumbotron">
+    <h1 class="display-4">Bootstrap starter template by {{ app_data['author'] }} </h1>
+    <p class="lead"></p>
+    <p>Title: {{ app_data['html_title'] }}</p>
+
+    <hr class="my-4">
+    <p></p>
+    <a class="btn btn-primary btn-lg" href="/contact" role="button">Contact</a>
+  </div>
+{% endblock %}
