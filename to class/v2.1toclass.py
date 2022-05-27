@@ -31,21 +31,11 @@ databus.BOYLAM = databus.BOYLAM/1000000
 
 
 
-databus1 = databus.loc[databus.ANA_HAT_NO==1]
-databus1=databus1.reset_index(drop=True)
-
-
-kord = []
-for point in range(len(databus1)):
-    kord.append(tuple([databus1.ENLEM[point], databus1.BOYLAM[point]]))
-
-
-
 # Import data from EarthPy
 data = et.data.get_data('colorado-flood')
 
 # Set working directory to earth-analytics
-os.chdir(os.path.join(et.io.HOME, 'earth-analytics', 'data'))
+#os.chdir(os.path.join(et.io.HOME, 'earth-analytics', 'data'))
 
 m = folium.Map(location=[37.871540, 32.498914], 
                tiles = 'Stamen Terrain',zoom_start=12)
@@ -55,17 +45,25 @@ m = folium.Map(location=[37.871540, 32.498914],
 #    location=[37.871540, 32.498914], # coordinates for the marker
 #    popup='Earth Lab at CU Boulder', # pop-up label for the marker
 #    icon=folium.Icon() ).add_to(m)
-folium.PolyLine(kord).add_to(m)
+
+for num in databus.ANA_HAT_NO.unique():
+    databus1 = databus.loc[databus.ANA_HAT_NO==num]
+    databus1 = databus1.reset_index(drop=True)
+    kord = []
+    for point in range(len(databus1)):
+        kord.append(tuple([databus1.ENLEM[point], databus1.BOYLAM[point]]))
+    folium.PolyLine(kord,opacity=0.02,color="red").add_to(m)
 
 
-for point in range(0,len(databus1),12):
-    folium.Marker(location=[databus1.ENLEM[point], databus1.BOYLAM[point]], # coordinates for the marker
-                                popup='Earth Lab at CU Boulder', # pop-up label for the marker
-                                icon=folium.Icon() ).add_to(m)
+#for point in range(0,len(databus1),15):
+#    folium.Marker(location=[databus1.ENLEM[point], databus1.BOYLAM[point]], # coordinates for the marker
+ #                               popup='Earth Lab at CU Boulder', # pop-up label for the marker
+  #                              icon=folium.Icon() ).add_to(m)
     
     
     
 folium.TileLayer('openstreetmap').add_to(m)
+
 
 folium.Marker(location=[37.870010,32.517043],
               popup="Karatay 1",
@@ -108,6 +106,5 @@ folium.Marker(location=[38.357237,31.419943],
 folium.Marker(location=[38.514783,32.459111],
               popup="Sarayönü",
               icon=folium.Icon(color="purple")).add_to(m)
-
 
 
