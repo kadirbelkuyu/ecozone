@@ -1,4 +1,5 @@
 
+import imp
 import os 
 import folium
 from folium import plugins
@@ -10,8 +11,8 @@ import webbrowser
 import pandas as pd
 from IPython.display import display
 from folium.plugins import MarkerCluster
-
-
+from folium import IFrame
+from folium_jsbutton import JsButton
 class getMap:
 		def __init__(self):
 				# Import data from EarthPy
@@ -127,7 +128,7 @@ class getMap:
 				fill=True, opacity=0.6).add_to(markers)
 
 
-
+				
 				folium.Marker(location=[37.844698,32.513969], tooltip= "Karatay 2 Ölçüm Noktası",
 				              popup=AgacOneri(havaDegerler[1]),
 				              icon=folium.Icon(color="red",icon='building ', prefix='fa')).add_to(markers)
@@ -231,6 +232,15 @@ class getMap:
 				fill=True, opacity=0.6).add_to(markers)
 
 				marker_cluster = MarkerCluster(trafic_lights,overlay=True)
+
+				JsButton(
+					title='<i class="fas fa-crosshairs"></i>',function="""
+					function(btn, map) {
+						map.setView([37.871540, 32.498914],12);
+						btn.state('zoom-to-forest');
+					}
+					""").add_to(m)
+
 
 				# Add marker cluster to map
 				marker_cluster.add_to(trafik_isik)
