@@ -102,21 +102,22 @@ class getMap:
 				#renkler =["", "orange", "lightblue", "pink","green" ,"purple","darkgreen", "red","black" ]
 
 				def AgacOneri(havaKiri):
+					text = "PM10 değeri: " + str(havaKiri) + "\n"
 					if(havaKiri > 65):
-						return "Hava Tehlike Seviyesi: 5\n Önerilen Bitki Türü: Ladin"
+						return text + "Hava Tehlike Seviyesi: 5\n Önerilen Bitki Türü: Ladin"
 					elif(havaKiri > 50):
-						return "Hava Tehlike Seviyesi: 4\n Önerilen Bitki Türü: Kayın Ağacı"
+						return text + "Hava Tehlike Seviyesi: 4\n Önerilen Bitki Türü: Kayın Ağacı"
 					elif(havaKiri > 35):
-						return "Hava Tehlike Seviyesi: 3\n Önerilen Bitki Türü: Meşe"
+						return text + "Hava Tehlike Seviyesi: 3\n Önerilen Bitki Türü: Meşe"
 					elif(havaKiri >25 ):
-						return "Hava Tehlike Seviyesi: 2\n Önerilen Bitki Türü: Çam"
+						return text + "Hava Tehlike Seviyesi: 2\n Önerilen Bitki Türü: Çam"
 					elif(havaKiri > 15):
-						return "Hava Tehlike Seviyesi: 1\n Önerilen Bitki Türü: Şimşir"
+						return text + "Hava Tehlike Seviyesi: 1\n Önerilen Bitki Türü: Şimşir"
 					else:
 						return "Eksik veri sorunu"
 
 				folium.Marker(location=[37.870010,32.517043], tooltip= "Karatay 1 Ölçüm Noktası",
-				              popup=AgacOneri(havaDegerler[0]),
+				              popup= AgacOneri(havaDegerler[0]),
 				              icon=folium.Icon(color="green",icon='building ', prefix='fa')).add_to(markers)
 
 				folium.Circle(
