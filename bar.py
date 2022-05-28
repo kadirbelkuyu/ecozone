@@ -19,9 +19,13 @@ class get_barchar():
 
 		try:
 			for self.sutun in range(len(self.cols)):
-				fig, ax = plt.subplots(figsize=(10,10))
+				sns.set_style('darkgrid')
+				fig, ax = plt.subplots(figsize=(9,4))
 				self.df = self.df.sort_values([self.cols[self.sutun]]).reset_index(drop=True)
 				sns.barplot(x='Istasyon', y=str(self.cols[self.sutun]),data = self.df,color= self.colors[self.sutun], label=str(self.cols[self.sutun]))
+				plt.rcParams["font.weight"] = "bold"
+				plt.xlabel('Istasyon',size=15)
+				plt.ylabel(str(self.cols[self.sutun]),size=15)
 				self.pp.savefig(plt.gcf())
 
 		finally:
