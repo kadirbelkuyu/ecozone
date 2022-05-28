@@ -251,17 +251,19 @@ class getMap:
 						btn.state('zoom-to-forest');
 					}
 					""").add_to(m)
+
 				JsButton(
 					
-					title='<i class="fa-solid fa-book"></i>',function="""
+					title='<i class="fas fa-book"></i>',function="""
 					function(btn, map) {
-						
-						
+						print()
 					}
 					""").add_to(m)
+
 				
 				# Add marker cluster to map
 				marker_cluster.add_to(trafik_isik)
 
 				folium.LayerControl().add_to(m)
 				return m
+				

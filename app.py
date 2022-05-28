@@ -5,6 +5,7 @@
 from flask import Flask, render_template
 from v4toclass import getMap
 DEVELOPMENT_ENV  = True
+from bar import get_barchar
 
 app = Flask(__name__)
 
@@ -29,6 +30,10 @@ def index():
 def about():
     return render_template('about.html', app_data=app_data)
 
+@app.route('/analiz')
+def analiz():
+    analiz = get_barchar().plotsbar()
+    return render_template('analiz.html', app_data=app_data)
 
 @app.route('/service')
 def service():
