@@ -95,8 +95,8 @@ class getMap:
 				  #                              icon=folium.Icon() ).add_to(m)
 				    
 				    
-				 
-				#folium.TileLayer('openstreetmap').add_to(m)
+				tileLayerrr=  folium.FeatureGroup(name="Görünüm-2").add_to(m)
+				folium.TileLayer('openstreetmap').add_to(tileLayerrr)
 
 				
 
