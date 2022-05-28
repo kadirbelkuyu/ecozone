@@ -98,10 +98,25 @@ class getMap:
 				tileLayerrr=  folium.FeatureGroup(name="Görünüm-2").add_to(m)
 				folium.TileLayer('openstreetmap').add_to(tileLayerrr)
 
-				
+				havaDegerler = [40.71, 25.78, 77.99, 29.97, 29.47, 45.84, 68.49, 0,-1,-1, 16.09]
+				#renkler =["", "orange", "lightblue", "pink","green" ,"purple","darkgreen", "red","black" ]
 
-				folium.Marker(location=[37.870010,32.517043],
-				              popup="Karatay 1",
+				def AgacOneri(havaKiri):
+					if(havaKiri > 65):
+						return "Hava Tehlike Seviyesi: 5\n Önerilen Bitki Türü: Ladin"
+					elif(havaKiri > 50):
+						return "Hava Tehlike Seviyesi: 4\n Önerilen Bitki Türü: Kayın Ağacı"
+					elif(havaKiri > 35):
+						return "Hava Tehlike Seviyesi: 3\n Önerilen Bitki Türü: Meşe"
+					elif(havaKiri >25 ):
+						return "Hava Tehlike Seviyesi: 2\n Önerilen Bitki Türü: Çam"
+					elif(havaKiri > 15):
+						return "Hava Tehlike Seviyesi: 1\n Önerilen Bitki Türü: Şimşir"
+					else:
+						return "Eksik veri sorunu"
+
+				folium.Marker(location=[37.870010,32.517043], tooltip= "Karatay 1 Ölçüm Noktası",
+				              popup=AgacOneri(havaDegerler[0]),
 				              icon=folium.Icon(color="green",icon='building ', prefix='fa')).add_to(markers)
 
 				folium.Circle(
@@ -112,8 +127,8 @@ class getMap:
 
 
 
-				folium.Marker(location=[37.844698,32.513969],
-				              popup="Karatay 2",
+				folium.Marker(location=[37.844698,32.513969], tooltip= "Karatay 2 Ölçüm Noktası",
+				              popup=AgacOneri(havaDegerler[1]),
 				              icon=folium.Icon(color="red",icon='building ', prefix='fa')).add_to(markers)
 
 				folium.Circle(
@@ -124,8 +139,8 @@ class getMap:
 
 
 
-				folium.Marker(location=[37.917843,32.505660],
-				              popup="Selçuklu",
+				folium.Marker(location=[37.917843,32.505660], tooltip= "Selçuklu Ölçüm Noktası",
+				              popup=AgacOneri(havaDegerler[2]),
 				              icon=folium.Icon(color="black",icon='building ', prefix='fa')).add_to(markers)
 
 				folium.Circle(
@@ -136,8 +151,8 @@ class getMap:
 
 
 
-				folium.Marker(location=[38.013184,32.520520],
-				              popup="Bosna",
+				folium.Marker(location=[38.013184,32.520520], tooltip= "Bosna Ölçüm Noktası",
+				              ppopup=AgacOneri(havaDegerler[3]),
 				              icon=folium.Icon(color="gray",icon='building ', prefix='fa')).add_to(markers)
 
 				folium.Circle(
@@ -147,8 +162,8 @@ class getMap:
 				fill=True, opacity=0.6).add_to(markers)
 
 
-				folium.Marker(location=[37.860659,32.470254],
-				              popup="Meram",
+				folium.Marker(location=[37.860659,32.470254], tooltip= "Meram Ölçüm Noktası",
+				              popup=AgacOneri(havaDegerler[4]),
 				              icon=folium.Icon(color="orange",icon='building ', prefix='fa')).add_to(markers)
 
 				folium.Circle(
@@ -158,8 +173,8 @@ class getMap:
 				fill=True, opacity=0.6).add_to(markers)
 
 
-				folium.Marker(location=[37.907138,32.459662],
-				              popup="Erenköy",
+				folium.Marker(location=[37.907138,32.459662], tooltip= "Erenköy Ölçüm Noktası",
+				              popup=AgacOneri(havaDegerler[5]),
 				              icon=folium.Icon(color="darkgreen",icon='building ', prefix='fa')).add_to(markers)
 
 				folium.Circle(
@@ -170,8 +185,8 @@ class getMap:
 
 
 
-				folium.Marker(location=[37.903952,32.527440],
-				              popup="Karkent",
+				folium.Marker(location=[37.903952,32.527440], tooltip= "Karkent Ölçüm Noktası",
+				              popup=AgacOneri(havaDegerler[6]),
 				              icon=folium.Icon(color="beige",icon='building ', prefix='fa')).add_to(markers)
 
 				folium.Circle(
@@ -181,8 +196,8 @@ class getMap:
 				fill=True, opacity=0.6).add_to(markers)
 
 
-				folium.Marker(location=[37.883034,32.485458],
-				              popup="Merkez Trafik",
+				folium.Marker(location=[37.883034,32.485458], tooltip= "Merkez Trafik Ölçüm Noktası",
+				              popup=AgacOneri(havaDegerler[7]),
 				              icon=folium.Icon(color="purple",icon='building ', prefix='fa')).add_to(markers)
 
 				folium.Circle(
@@ -192,8 +207,8 @@ class getMap:
 				fill=True, opacity=0.6).add_to(markers)
 
 
-				folium.Marker(location=[38.357237,31.419943],
-				              popup="Akşehir",
+				folium.Marker(location=[38.357237,31.419943], tooltip= "Akşehir Ölçüm Noktası",
+				              popup=AgacOneri(havaDegerler[8]),
 				              icon=folium.Icon(color="lightblue",icon='building ', prefix='fa')).add_to(markers)
 
 
@@ -204,8 +219,8 @@ class getMap:
 				fill=True, opacity=0.6).add_to(markers)
 
 
-				folium.Marker(location=[38.514783,32.459111],
-				              popup="Sarayönü",
+				folium.Marker(location=[38.514783,32.459111], tooltip= "Sarayönü Ölçüm Noktası",
+				              popup=AgacOneri(havaDegerler[9]),
 				              icon=folium.Icon(color="pink",icon='building ', prefix='fa')).add_to(markers)
 
 				folium.Circle(
