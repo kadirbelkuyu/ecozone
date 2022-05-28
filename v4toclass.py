@@ -71,6 +71,9 @@ class getMap:
 	
 				okul_areas = folium.FeatureGroup(name="Okullar").add_to(m)	
 				
+				path_okul = "veri/okullar.geojson"
+				okul=geopandas.read_file(path_okul)
+				folium.GeoJson(data=okul["geometry"]).add_to(okul_areas)
 				#add_to(okul_areas)-failed for now
 				#okul_path = "veri/okullar.geojson"
 				#okul=geopandas.read_file(okul_path)
