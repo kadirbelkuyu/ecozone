@@ -13,6 +13,9 @@ from IPython.display import display
 from folium.plugins import MarkerCluster
 from folium import IFrame
 from folium_jsbutton import JsButton
+import geopandas
+
+
 class getMap:
 		def __init__(self):
 				# Import data from EarthPy
@@ -65,7 +68,15 @@ class getMap:
 
 				#otobüs güzergah hattını temsil eden kontrolcü
 				trafic_line = folium.FeatureGroup(name="Otobüs Güzergah Hattı").add_to(m)
-
+	
+				okul_areas = folium.FeatureGroup(name="Okullar").add_to(m)	
+				
+				#add_to(okul_areas)-failed for now
+				#okul_path = "veri/okullar.geojson"
+				#okul=geopandas.read_file(okul_path)
+				#folium.GeoJson(data=okul["geometry"]).add_to(okul_areas)
+				#print(okul.geometry[0])
+				
 				
 				# Add marker for Boulder, CO
 				#folium.Marker(
@@ -240,8 +251,15 @@ class getMap:
 						btn.state('zoom-to-forest');
 					}
 					""").add_to(m)
-
-
+				JsButton(
+					
+					title='<i class="fa-solid fa-book"></i>',function="""
+					function(btn, map) {
+						
+						
+					}
+					""").add_to(m)
+				
 				# Add marker cluster to map
 				marker_cluster.add_to(trafik_isik)
 
