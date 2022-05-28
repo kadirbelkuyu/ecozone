@@ -100,7 +100,7 @@ class getMap:
 
 				
 
-				folium.Marker(location=[37.870010,32.517043],
+				folium.Marker(location=[37.870010,32.517043],tooltip="Karatay 1 Ölçüm Noktası",
 				              popup="Karatay 1",
 				              icon=folium.Icon(color="green",icon='building ', prefix='fa')).add_to(markers)
 
@@ -112,7 +112,7 @@ class getMap:
 
 
 
-				folium.Marker(location=[37.844698,32.513969],
+				folium.Marker(location=[37.844698,32.513969],tooltip="Karatay 2 Ölçüm Noktası",
 				              popup="Karatay 2",
 				              icon=folium.Icon(color="red",icon='building ', prefix='fa')).add_to(markers)
 
@@ -124,7 +124,7 @@ class getMap:
 
 
 
-				folium.Marker(location=[37.917843,32.505660],
+				folium.Marker(location=[37.917843,32.505660],tooltip="Selçuklu Ölçüm Noktası",
 				              popup="Selçuklu",
 				              icon=folium.Icon(color="black",icon='building ', prefix='fa')).add_to(markers)
 
@@ -136,7 +136,7 @@ class getMap:
 
 
 
-				folium.Marker(location=[38.013184,32.520520],
+				folium.Marker(location=[38.013184,32.520520],tooltip="Bosna Ölçüm Noktası",
 				              popup="Bosna",
 				              icon=folium.Icon(color="gray",icon='building ', prefix='fa')).add_to(markers)
 
@@ -147,7 +147,7 @@ class getMap:
 				fill=True, opacity=0.6).add_to(markers)
 
 
-				folium.Marker(location=[37.860659,32.470254],
+				folium.Marker(location=[37.860659,32.470254],tooltip="Meram Ölçüm Noktası",
 				              popup="Meram",
 				              icon=folium.Icon(color="orange",icon='building ', prefix='fa')).add_to(markers)
 
@@ -158,7 +158,7 @@ class getMap:
 				fill=True, opacity=0.6).add_to(markers)
 
 
-				folium.Marker(location=[37.907138,32.459662],
+				folium.Marker(location=[37.907138,32.459662],tooltip="Erenköy Ölçüm Noktası",
 				              popup="Erenköy",
 				              icon=folium.Icon(color="darkgreen",icon='building ', prefix='fa')).add_to(markers)
 
@@ -170,7 +170,7 @@ class getMap:
 
 
 
-				folium.Marker(location=[37.903952,32.527440],
+				folium.Marker(location=[37.903952,32.527440],tooltip="Karkent Ölçüm Noktası",
 				              popup="Karkent",
 				              icon=folium.Icon(color="beige",icon='building ', prefix='fa')).add_to(markers)
 
@@ -181,7 +181,7 @@ class getMap:
 				fill=True, opacity=0.6).add_to(markers)
 
 
-				folium.Marker(location=[37.883034,32.485458],
+				folium.Marker(location=[37.883034,32.485458],tooltip="Merkez Trafik Ölçüm Noktası",
 				              popup="Merkez Trafik",
 				              icon=folium.Icon(color="purple",icon='building ', prefix='fa')).add_to(markers)
 
@@ -192,7 +192,7 @@ class getMap:
 				fill=True, opacity=0.6).add_to(markers)
 
 
-				folium.Marker(location=[38.357237,31.419943],
+				folium.Marker(location=[38.357237,31.419943], tooltip="Akşehir Ölçüm Noktası",
 				              popup="Akşehir",
 				              icon=folium.Icon(color="lightblue",icon='building ', prefix='fa')).add_to(markers)
 
@@ -204,7 +204,7 @@ class getMap:
 				fill=True, opacity=0.6).add_to(markers)
 
 
-				folium.Marker(location=[38.514783,32.459111],
+				folium.Marker(location=[38.514783,32.459111],tooltip="Sarayönü Ölçüm Noktası",
 				              popup="Sarayönü",
 				              icon=folium.Icon(color="pink",icon='building ', prefix='fa')).add_to(markers)
 
