@@ -67,119 +67,129 @@ class getMap:
 						
 						
 				#folium.TileLayer('openstreetmap').add_to(m)
+				markers = folium.FeatureGroup(name="Hava Kalitesi Kontrol Noktaları").add_to(m)
 				folium.Marker(location=[37.870010,32.517043],
 							popup="Karatay 1",
-							icon=folium.Icon(color="green")).add_to(m)
+							icon=folium.Icon(color="green")).add_to(markers)
 
 				folium.Circle(
 				radius=1500,
 				location=[37.870010,32.517043],
 				color='green', weight=1,
-				fill=False,).add_to(m)
+				fill=True, opacity=0.5).add_to(markers)
 
 
 
 				folium.Marker(location=[37.844698,32.513969],
 											popup="Karatay 2",
-											icon=folium.Icon(color="red")).add_to(m)
+											icon=folium.Icon(color="red")).add_to(markers)
 
 				folium.Circle(
 				radius=1500,
 				location=[37.844698,32.513969],
 				color='red', weight=1,
-				fill=False,).add_to(m)
+				fill=True, opacity=0.5).add_to(markers)
 
 
 
 				folium.Marker(location=[37.917843,32.505660],
 											popup="Selçuklu",
-											icon=folium.Icon(color="black")).add_to(m)
+											icon=folium.Icon(color="black")).add_to(markers)
 
 				folium.Circle(
 				radius=1500,
 				location=[37.917843,32.505660],
 				color='black', weight=1,
-				fill=False,).add_to(m)
+				fill=False,).add_to(markers)
 
 
 
 				folium.Marker(location=[38.013184,32.520520],
 											popup="Bosna",
-											icon=folium.Icon(color="gray")).add_to(m)
+											icon=folium.Icon(color="gray")).add_to(markers)
 
 				folium.Circle(
 				radius=1500,
 				location=[38.013184,32.520520],
 				color='gray', weight=1,
-				fill=False,).add_to(m)
+				fill=False,).add_to(markers)
 
 
 				folium.Marker(location=[37.860659,32.470254],
 											popup="Meram",
-											icon=folium.Icon(color="orange")).add_to(m)
+											icon=folium.Icon(color="orange")).add_to(markers)
 
 				folium.Circle(
 				radius=1500,
 				location=[37.860659,32.470254],
 				color='orange', weight=1,
-				fill=False,).add_to(m)
+				fill=False,).add_to(markers)
 
 
 				folium.Marker(location=[37.907138,32.459662],
 											popup="Erenköy",
-											icon=folium.Icon(color="darkgreen")).add_to(m)
+											icon=folium.Icon(color="darkgreen")).add_to(markers)
 
 				folium.Circle(
 				radius=1500,
 				location=[37.907138,32.459662],
 				color='darkgreen', weight=1,
-				fill=False,).add_to(m)
+				fill=True, opacity=1,).add_to(markers)
 
 
 
 				folium.Marker(location=[37.903952,32.527440],
 											popup="Karkent",
-											icon=folium.Icon(color="beige")).add_to(m)
+											icon=folium.Icon(color="beige")).add_to(markers)
 
 				folium.Circle(
 				radius=1500,
 				location=[37.903952,32.527440],
 				color='beige', weight=1,
-				fill=False,).add_to(m)
+				fill=False,).add_to(markers)
 
 
 				folium.Marker(location=[37.883034,32.485458],
 											popup="Merkez Trafik",
-											icon=folium.Icon(color="pink")).add_to(m)
+											icon=folium.Icon(color="pink")).add_to(markers)
 
 				folium.Circle(
 				radius=1500,
 				location=[37.883034,32.485458],
 				color='pink', weight=1.5,
-				fill=False,).add_to(m)
+				fill=False,).add_to(markers)
+
+				
+				
 
 
 				folium.Marker(location=[38.357237,31.419943],
 											popup="Akşehir",
-											icon=folium.Icon(color="lightblue")).add_to(m)
+											icon=folium.Icon(color="lightblue")).add_to(markers)
 
 
 				folium.Circle(
 				radius=3000,
 				location=[38.357237,31.419943],
 				color='lightblue', weight=1,
-				fill=False,).add_to(m)
+				fill=True, opacity=0.6).add_to(markers)
 
-
+				
 				folium.Marker(location=[38.514783,32.459111],
 											popup="Sarayönü",
-											icon=folium.Icon(color="purple")).add_to(m)
+											icon=folium.Icon(color="purple")).add_to(markers)
+
+				
+				
 
 				folium.Circle(
 				radius=2500,
 				location=[38.514783,32.459111],
 				color='purple', weight=1,
-				fill=False,).add_to(m)
+				fill=True, opacity=0.6).add_to(markers)
 
+				
+				
+				folium.LayerControl().add_to(m)
 
 				return m

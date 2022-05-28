@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 import webbrowser
 import pandas as pd
 from IPython.display import display
+from folium.plugins import MarkerCluster
 
 
 class getMap:
@@ -20,7 +21,7 @@ class getMap:
 				#os.chdir(os.path.join(et.io.HOME, 'earth-analytics', 'data'))
 				
 		def getmap():
-				path = "20_202106_guzergah.csv"
+				path = "veri/20_202106_guzergah.csv"
 				databus= pd.read_csv(path, sep=";")
 
 				databus.ENLEM = databus.ENLEM.str.replace(".","")
@@ -34,7 +35,7 @@ class getMap:
 				databus.ENLEM = databus.ENLEM/1000000
 				databus.BOYLAM = databus.BOYLAM/1000000
 
-				path2 = "../input/gdgyarma/38_202103_trafik_isik.csv"
+				path2 = "veri/38_202103_trafik_isik.csv"
 				df2 = pd.read_csv(path2)
 				df2=df2.loc[df2.DURUM!="Yesil Dalga"]
 				df2=df2.reset_index(drop=True)
@@ -86,126 +87,131 @@ class getMap:
 				 
 				#folium.TileLayer('openstreetmap').add_to(m)
 
+				#hava kalitesini ölçen noktaların harita kontrolcüsü
+				markers = folium.FeatureGroup(name="Hava Kalitesi Kontrol Noktaları").add_to(m)
 
-
+	
+				#trafik ışıklarını kontrol eden noktaların kontrolcüsü
+				trafik_isik = folium.FeatureGroup(name="Trafik Işık Noktaları").add_to(m)
 
 				folium.Marker(location=[37.870010,32.517043],
 				              popup="Karatay 1",
-				              icon=folium.Icon(color="green",icon='building ', prefix='fa')).add_to(m)
+				              icon=folium.Icon(color="green",icon='building ', prefix='fa')).add_to(markers)
 
 				folium.Circle(
 				radius=1500,
 				location=[37.870010,32.517043],
 				color='green', weight=2,
-				fill=False,).add_to(m)
+				fill=False,).add_to(markers)
 
 
 
 				folium.Marker(location=[37.844698,32.513969],
 				              popup="Karatay 2",
-				              icon=folium.Icon(color="red",icon='building ', prefix='fa')).add_to(m)
+				              icon=folium.Icon(color="red",icon='building ', prefix='fa')).add_to(markers)
 
 				folium.Circle(
 				radius=1500,
 				location=[37.844698,32.513969],
 				color='red', weight=2,
-				fill=False,).add_to(m)
+				fill=False,).add_to(markers)
 
 
 
 				folium.Marker(location=[37.917843,32.505660],
 				              popup="Selçuklu",
-				              icon=folium.Icon(color="black",icon='building ', prefix='fa')).add_to(m)
+				              icon=folium.Icon(color="black",icon='building ', prefix='fa')).add_to(markers)
 
 				folium.Circle(
 				radius=1500,
 				location=[37.917843,32.505660],
 				color='black', weight=2,
-				fill=False,).add_to(m)
+				fill=False,).add_to(markers)
 
 
 
 				folium.Marker(location=[38.013184,32.520520],
 				              popup="Bosna",
-				              icon=folium.Icon(color="gray",icon='building ', prefix='fa')).add_to(m)
+				              icon=folium.Icon(color="gray",icon='building ', prefix='fa')).add_to(markers)
 
 				folium.Circle(
 				radius=1500,
 				location=[38.013184,32.520520],
 				color='gray', weight=2,
-				fill=False,).add_to(m)
+				fill=False,).add_to(markers)
 
 
 				folium.Marker(location=[37.860659,32.470254],
 				              popup="Meram",
-				              icon=folium.Icon(color="orange",icon='building ', prefix='fa')).add_to(m)
+				              icon=folium.Icon(color="orange",icon='building ', prefix='fa')).add_to(markers)
 
 				folium.Circle(
 				radius=1500,
 				location=[37.860659,32.470254],
 				color='orange', weight=2,
-				fill=False,).add_to(m)
+				fill=False,).add_to(markers)
 
 
 				folium.Marker(location=[37.907138,32.459662],
 				              popup="Erenköy",
-				              icon=folium.Icon(color="darkgreen",icon='building ', prefix='fa')).add_to(m)
+				              icon=folium.Icon(color="darkgreen",icon='building ', prefix='fa')).add_to(markers)
 
 				folium.Circle(
 				radius=1500,
 				location=[37.907138,32.459662],
 				color='darkgreen', weight=2,
-				fill=False,).add_to(m)
+				fill=False,).add_to(markers)
 
 
 
 				folium.Marker(location=[37.903952,32.527440],
 				              popup="Karkent",
-				              icon=folium.Icon(color="beige",icon='building ', prefix='fa')).add_to(m)
+				              icon=folium.Icon(color="beige",icon='building ', prefix='fa')).add_to(markers)
 
 				folium.Circle(
 				radius=1500,
 				location=[37.903952,32.527440],
 				color='beige', weight=2,
-				fill=False,).add_to(m)
+				fill=False,).add_to(markers)
 
 
 				folium.Marker(location=[37.883034,32.485458],
 				              popup="Merkez Trafik",
-				              icon=folium.Icon(color="purple",icon='building ', prefix='fa')).add_to(m)
+				              icon=folium.Icon(color="purple",icon='building ', prefix='fa')).add_to(markers)
 
 				folium.Circle(
 				radius=1500,
 				location=[37.883034,32.485458],
 				color='purple', weight=2,
-				fill=False,).add_to(m)
+				fill=False,).add_to(markers)
 
 
 				folium.Marker(location=[38.357237,31.419943],
 				              popup="Akşehir",
-				              icon=folium.Icon(color="lightblue",icon='building ', prefix='fa')).add_to(m)
+				              icon=folium.Icon(color="lightblue",icon='building ', prefix='fa')).add_to(markers)
 
 
 				folium.Circle(
 				radius=3000,
 				location=[38.357237,31.419943],
 				color='lightblue', weight=2,
-				fill=False,).add_to(m)
+				fill=False,).add_to(markers)
 
 
 				folium.Marker(location=[38.514783,32.459111],
 				              popup="Sarayönü",
-				              icon=folium.Icon(color="pink",icon='building ', prefix='fa')).add_to(m)
+				              icon=folium.Icon(color="pink",icon='building ', prefix='fa')).add_to(markers)
 
 				folium.Circle(
 				radius=2500,
 				location=[38.514783,32.459111],
 				color='pink', weight=2,
-				fill=False,).add_to(m)
+				fill=False,).add_to(markers)
 
 				marker_cluster = MarkerCluster(trafic_lights,overlay=True)
 
 				# Add marker cluster to map
-				marker_cluster.add_to(m)
+				marker_cluster.add_to(trafik_isik)
 
+				folium.LayerControl().add_to(m)
 				return m

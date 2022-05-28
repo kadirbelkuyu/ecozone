@@ -3,7 +3,7 @@
 # -*- coding: utf-8 -*-
 
 from flask import Flask, render_template
-from v3toclass import getMap
+from v4toclass import getMap
 DEVELOPMENT_ENV  = True
 
 app = Flask(__name__)
