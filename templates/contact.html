@@ -1,9 +1,70 @@
-{% extends 'layout.html' %}
+<!doctype html>
+<html lang="en">
 
-{% block body %}
-    <h1>You can contact me on Github.</h1>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <title>EcoZone -  map</title>
 
+    <!--<link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/cover/">-->
 
-    <p class="lead"> - <a href="https://github.com/kadirbelkuyu/ecozone" target="_blank" >https://github.com/kadirbelkuyu/ecozone</a></p>
-    {{ map }}
-{% endblock %}
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cover.css') }}">
+</head>
+
+<body class="text-center">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <header class="masthead mb-auto">
+            <div class="inner">
+                <h3 class="masthead-brand">EcoZone Project</h3>
+                <nav class="nav nav-masthead justify-content-center">
+                    <a class="nav-link active" href="">Home</a>
+                    <a class="nav-link" href="https://github.com/kadirbelkuyu/ecozone" target="blank">Github</a>
+                    <a class="nav-link" href="/contact">Contact</a>
+                </nav>
+            </div>
+        </header>
+
+        <main role="main" class="inner cover">
+            <p class="lead">Abdulkerim Dev: Backend Dev</p>
+            <p class="lead">Levent Özdemir: Data Sciences</p>
+            <p class="lead">Kadir Belkuyu: DevOps</p>
+         
+            <p class="lead">
+                <a href="https://github.com/kadirbelkuyu/ecozone" class="btn btn-lg btn-secondary"  target="blank">github</a>
+            </p>
+        </main>
+
+        <footer class="mastfoot mt-auto">
+            <div class="inner">
+                <p>© ecozone</p>
+            </div>
+        </footer>
+    </div>
+
+</body>
+
+</html>

@@ -1,14 +1,68 @@
-{% extends 'layout.html' %}
+<!doctype html>
+<html lang="en">
 
-{% block body %}
-<div class="jumbotron">
-    <h1 class="display-4"></h1>
-    <p class="lead"></p>
-    <p>Title: {{ app_data['html_title'] }}</p>
-    
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <title>EcoZone -  map</title>
 
-    <hr class="my-4">
-    <p></p>
-    <a class="btn btn-primary btn-lg" href="/contact" role="button">Contact</a>
-  </div>
-{% endblock %}
+    <!--<link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/cover/">-->
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cover.css') }}">
+</head>
+
+<body class="text-center">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <header class="masthead mb-auto">
+            <div class="inner">
+                <h3 class="masthead-brand">Hava Kirliliği</h3>
+                <nav class="nav nav-masthead justify-content-center">
+                    <a class="nav-link active" href="">Home</a>
+                    <a class="nav-link" href="https://github.com/kadirbelkuyu/ecozone" target="blank">Github</a>
+                    <a class="nav-link" href="/contact">Contact</a>
+                </nav>
+            </div>
+        </header>
+
+        <main role="main" class="inner cover">
+            <h1 class="cover-heading">EcoZone</h1>
+            <p class="lead"> Konya Çevre ve Yaşam Kalitesi Gözlem ve Tespit Portalı</p>
+            <p class="lead">
+                <a href="/service" class="btn btn-lg btn-secondary" target="blank">Haritaya Git</a>
+            </p>
+        </main>
+
+        <footer class="mastfoot mt-auto">
+            <div class="inner">
+                <p>© ecozone</p>
+            </div>
+        </footer>
+    </div>
+
+</body>
+
+</html>

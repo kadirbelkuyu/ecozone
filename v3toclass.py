@@ -7,7 +7,9 @@ import earthpy as et
 import earthpy.spatial as es
 import matplotlib.pyplot as plt 
 import webbrowser
+import pandas as pd
 from IPython.display import display
+
 
 class getMap:
 		def __init__(self):
@@ -18,7 +20,7 @@ class getMap:
 				#os.chdir(os.path.join(et.io.HOME, 'earth-analytics', 'data'))
 				
 		def getmap():
-				path = "../input/gdgyarma/20_202106_guzergah.csv"
+				path = "20_202106_guzergah.csv"
 				databus= pd.read_csv(path, sep=";")
 				databus.ENLEM = databus.ENLEM.str.replace(".","")
 
@@ -40,7 +42,7 @@ class getMap:
 				#os.chdir(os.path.join(et.io.HOME, 'earth-analytics', 'data'))
 
 				m = folium.Map(location=[37.871540, 32.498914], 
-											 tiles = 'Stamen Terrain',zoom_start=12)
+											 tiles = 'Stamen Terrain',zoom_start=12, position='relative')
 
 				# Add marker for Boulder, CO
 				#folium.Marker(

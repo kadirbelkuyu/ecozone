@@ -3,7 +3,7 @@
 # -*- coding: utf-8 -*-
 
 from flask import Flask, render_template
-from v2 import getMap
+from v3toclass import getMap
 DEVELOPMENT_ENV  = True
 
 app = Flask(__name__)
@@ -21,11 +21,9 @@ app_data = {
 
 @app.route('/')
 def index():
-    map = getMap.getmap()
-    print(map)
-    #return render_template('index.html', app_data=app_data)
-    return map._repr_html_()
-
+    
+    return render_template('index.html', app_data=app_data)
+    
 
 @app.route('/about')
 def about():
@@ -34,7 +32,10 @@ def about():
 
 @app.route('/service')
 def service():
-    return render_template('service.html', app_data=app_data)
+    map = getMap.getmap()
+    return map._repr_html_()
+
+    #return render_template('service.html', app_data=app_data)
 
 
 @app.route('/contact')
