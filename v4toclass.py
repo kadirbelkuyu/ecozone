@@ -40,6 +40,7 @@ class getMap:
 				df2=df2.loc[df2.DURUM!="Yesil Dalga"]
 				df2=df2.reset_index(drop=True)
 
+				
 
 				trafic_lights = []
 				for point in range(len(df2)):
@@ -55,6 +56,16 @@ class getMap:
 				m = folium.Map(location=[37.871540, 32.498914], 
 				               tiles = 'Stamen Terrain',zoom_start=12,control_scale=True)
 
+				#hava kalitesini ölçen noktaların harita kontrolcüsü
+				markers = folium.FeatureGroup(name="Hava Kalitesi Kontrol Noktaları").add_to(m)
+	
+				#trafik ışıklarını kontrol eden noktaların kontrolcüsü
+				trafik_isik = folium.FeatureGroup(name="Trafik Işık Noktaları", show=False).add_to(m)
+
+				#otobüs güzergah hattını temsil eden kontrolcü
+				trafic_line = folium.FeatureGroup(name="Otobüs Güzergah Hattı").add_to(m)
+
+				
 				# Add marker for Boulder, CO
 				#folium.Marker(
 				#    location=[37.871540, 32.498914], # coordinates for the marker
@@ -67,10 +78,10 @@ class getMap:
 				    kord = []
 				    for point in range(len(databus1)):
 				        kord.append(tuple([databus1.ENLEM[point], databus1.BOYLAM[point]]))
-				    folium.PolyLine(kord,opacity=0.03,color="#942C68").add_to(m)
+				    folium.PolyLine(kord,opacity=0.06,color="#942C68").add_to(trafic_line)
 
 
-				    
+				
 				#for light in trafic_lights:   
 				 #   folium.Marker(location=light, # coordinates for the marker
 				  #      popup='Trafik Işık', # pop-up label for the marker
@@ -87,12 +98,7 @@ class getMap:
 				 
 				#folium.TileLayer('openstreetmap').add_to(m)
 
-				#hava kalitesini ölçen noktaların harita kontrolcüsü
-				markers = folium.FeatureGroup(name="Hava Kalitesi Kontrol Noktaları").add_to(m)
-
-	
-				#trafik ışıklarını kontrol eden noktaların kontrolcüsü
-				trafik_isik = folium.FeatureGroup(name="Trafik Işık Noktaları").add_to(m)
+				
 
 				folium.Marker(location=[37.870010,32.517043],
 				              popup="Karatay 1",
@@ -102,7 +108,7 @@ class getMap:
 				radius=1500,
 				location=[37.870010,32.517043],
 				color='green', weight=2,
-				fill=False,).add_to(markers)
+				fill=True, opacity=0.6).add_to(markers)
 
 
 
@@ -114,7 +120,7 @@ class getMap:
 				radius=1500,
 				location=[37.844698,32.513969],
 				color='red', weight=2,
-				fill=False,).add_to(markers)
+				fill=True, opacity=0.6).add_to(markers)
 
 
 
@@ -126,7 +132,7 @@ class getMap:
 				radius=1500,
 				location=[37.917843,32.505660],
 				color='black', weight=2,
-				fill=False,).add_to(markers)
+				fill=True, opacity=0.6).add_to(markers)
 
 
 
@@ -138,7 +144,7 @@ class getMap:
 				radius=1500,
 				location=[38.013184,32.520520],
 				color='gray', weight=2,
-				fill=False,).add_to(markers)
+				fill=True, opacity=0.6).add_to(markers)
 
 
 				folium.Marker(location=[37.860659,32.470254],
@@ -149,7 +155,7 @@ class getMap:
 				radius=1500,
 				location=[37.860659,32.470254],
 				color='orange', weight=2,
-				fill=False,).add_to(markers)
+				fill=True, opacity=0.6).add_to(markers)
 
 
 				folium.Marker(location=[37.907138,32.459662],
@@ -160,7 +166,7 @@ class getMap:
 				radius=1500,
 				location=[37.907138,32.459662],
 				color='darkgreen', weight=2,
-				fill=False,).add_to(markers)
+				fill=True, opacity=0.6).add_to(markers)
 
 
 
@@ -172,7 +178,7 @@ class getMap:
 				radius=1500,
 				location=[37.903952,32.527440],
 				color='beige', weight=2,
-				fill=False,).add_to(markers)
+				fill=True, opacity=0.6).add_to(markers)
 
 
 				folium.Marker(location=[37.883034,32.485458],
@@ -183,7 +189,7 @@ class getMap:
 				radius=1500,
 				location=[37.883034,32.485458],
 				color='purple', weight=2,
-				fill=False,).add_to(markers)
+				fill=True, opacity=0.6).add_to(markers)
 
 
 				folium.Marker(location=[38.357237,31.419943],
@@ -195,7 +201,7 @@ class getMap:
 				radius=3000,
 				location=[38.357237,31.419943],
 				color='lightblue', weight=2,
-				fill=False,).add_to(markers)
+				fill=True, opacity=0.6).add_to(markers)
 
 
 				folium.Marker(location=[38.514783,32.459111],
@@ -206,7 +212,7 @@ class getMap:
 				radius=2500,
 				location=[38.514783,32.459111],
 				color='pink', weight=2,
-				fill=False,).add_to(markers)
+				fill=True, opacity=0.6).add_to(markers)
 
 				marker_cluster = MarkerCluster(trafic_lights,overlay=True)
 
