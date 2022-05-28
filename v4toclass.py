@@ -110,7 +110,7 @@ class getMap:
 				tileLayerrr=  folium.FeatureGroup(name="Görünüm-2").add_to(m)
 				folium.TileLayer('openstreetmap').add_to(tileLayerrr)
 
-				havaDegerler = [40.71, 25.78, 77.99, 29.97, 29.47, 45.84, 68.49, 0,-1,-1, 16.09]
+				havaDegerler = [40.71, 25.78, 77.99, 29.97, 29.47, 45.84, 68.49, 0, 20.37, 16.09]
 				#renkler =["", "orange", "lightblue", "pink","green" ,"purple","darkgreen", "red","black" ]
 
 				def AgacOneri(havaKiri):
