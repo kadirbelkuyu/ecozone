@@ -4,3 +4,5 @@ rioxarray
 earthpy
 matplotlib
 ipython
+folium-jsbutton
+seaborn
