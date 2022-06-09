@@ -110,7 +110,7 @@ class getMap:
 				  #                              icon=folium.Icon() ).add_to(m)
 				    
 				    
-				tileLayerrr=  folium.FeatureGroup(name="Görünüm-2").add_to(m)
+				tileLayerrr = folium.FeatureGroup(name="Görünüm-2").add_to(m)
 				folium.TileLayer('openstreetmap').add_to(tileLayerrr)
 
 				havaDegerler = [40.71, 25.78, 77.99, 29.97, 29.47, 45.84, 68.49, 0, 20.37, 16.09]
