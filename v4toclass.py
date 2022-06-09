@@ -1,12 +1,12 @@
 
 import imp
-import os 
+import os
 import folium
 from folium import plugins
 import rioxarray as rxr
 import earthpy as et
 import earthpy.spatial as es
-import matplotlib.pyplot as plt 
+import matplotlib.pyplot as plt
 import webbrowser
 import pandas as pd
 from IPython.display import display
@@ -23,7 +23,7 @@ class getMap:
 
 				# Set working directory to earth-analytics
 				#os.chdir(os.path.join(et.io.HOME, 'earth-analytics', 'data'))
-				
+
 		def getmap():
 				path = "veri/20_202106_guzergah.csv"
 				databus= pd.read_csv(path, sep=";")
@@ -44,7 +44,7 @@ class getMap:
 				df2=df2.loc[df2.DURUM!="Yesil Dalga"]
 				df2=df2.reset_index(drop=True)
 
-				
+
 
 				trafic_lights = []
 				for point in range(len(df2)):
@@ -57,20 +57,22 @@ class getMap:
 				# Set working directory to earth-analytics
 				#os.chdir(os.path.join(et.io.HOME, 'earth-analytics', 'data'))
 
-				m = folium.Map(location=[37.871540, 32.498914], 
+				m = folium.Map(location=[37.871540, 32.498914],
 				               tiles = 'Stamen Terrain',zoom_start=12,control_scale=True)
 
 				#hava kalitesini ölçen noktaların harita kontrolcüsü
 				markers = folium.FeatureGroup(name="Hava Kalitesi Kontrol Noktaları").add_to(m)
-	
+
 				#trafik ışıklarını kontrol eden noktaların kontrolcüsü
 				trafik_isik = folium.FeatureGroup(name="Trafik Işık Noktaları", show=False).add_to(m)
 
 				#otobüs güzergah hattını temsil eden kontrolcü
 				trafic_line = folium.FeatureGroup(name="Otobüs Güzergah Hattı").add_to(m)
-	
-				okul_areas = folium.FeatureGroup(name="Okullar").add_to(m)	
-				
+
+				okul_areas = folium.FeatureGroup(name="Okullar").add_to(m)
+
+				bike_areas = folium.FeatureGroup(name="Bisiklet Yolları", show=False) .add_to(m)
+
 				path_okul = "veri/okullar.geojson"
 				okul=geopandas.read_file(path_okul)
 				folium.GeoJson(data=okul["geometry"]).add_to(okul_areas)
@@ -79,8 +81,8 @@ class getMap:
 				#okul=geopandas.read_file(okul_path)
 				#folium.GeoJson(data=okul["geometry"]).add_to(okul_areas)
 				#print(okul.geometry[0])
-				
-				
+
+
 				# Add marker for Boulder, CO
 				#folium.Marker(
 				#    location=[37.871540, 32.498914], # coordinates for the marker
@@ -96,8 +98,8 @@ class getMap:
 				    folium.PolyLine(kord,opacity=0.06,color="#942C68").add_to(trafic_line)
 
 
-				
-				#for light in trafic_lights:   
+
+				#for light in trafic_lights:
 				 #   folium.Marker(location=light, # coordinates for the marker
 				  #      popup='Trafik Işık', # pop-up label for the marker
 				   #         icon=folium.Icon(icon='map-pin', prefix='fa',icon_size=0.1, icon_color="red") ).add_to(m)
@@ -108,8 +110,8 @@ class getMap:
 				#    folium.Marker(location=[databus1.ENLEM[point], databus1.BOYLAM[point]], # coordinates for the marker
 				 #                               popup='Earth Lab at CU Boulder', # pop-up label for the marker
 				  #                              icon=folium.Icon() ).add_to(m)
-				    
-				    
+
+
 				tileLayerrr = folium.FeatureGroup(name="Görünüm-2").add_to(m)
 				folium.TileLayer('openstreetmap').add_to(tileLayerrr)
 
@@ -142,7 +144,7 @@ class getMap:
 				fill=True, opacity=0.6).add_to(markers)
 
 
-				
+
 				folium.Marker(location=[37.844698,32.513969], tooltip= "Karatay 2 Ölçüm Noktası",
 				              popup=AgacOneri(havaDegerler[1]),
 				              icon=folium.Icon(color="red",icon='building ', prefix='fa')).add_to(markers)
@@ -256,17 +258,16 @@ class getMap:
 					""").add_to(m)
 
 				JsButton(
-					
+
 					title='<i class="fas fa-book"></i>',function="""
 					function(btn, map) {
 						print()
 					}
 					""").add_to(m)
 
-				
+
 				# Add marker cluster to map
 				marker_cluster.add_to(trafik_isik)
 
 				folium.LayerControl().add_to(m)
 				return m
-				
