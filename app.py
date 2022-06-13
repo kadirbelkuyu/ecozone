@@ -6,6 +6,7 @@ from flask import Flask, render_template
 from v4toclass import getMap
 DEVELOPMENT_ENV  = True
 from bar import get_barchar
+import streamlit as st
 
 app = Flask(__name__)
 
