@@ -9,30 +9,41 @@
 <div style="width: 100%; height: 100%" id="mapContainer"></div>
 
 <script>
-      // Initialize the platform object:
-      var platform = new H.service.Platform({
-        'apikey': 'REQsqLxTIZdnGeVV8Dvsq4P_QY8bSBdXVXfbDAGjmLI'
-      });
 
-	   const lat = 37.871540;
-	   const long = 32.498914;
 
-	// Obtain the default map types from the platform object
-      var maptypes = platform.createDefaultLayers();
 
-      // Instantiate (and display) a map object:
-      var map = new H.Map(
-        document.getElementById('mapContainer'),
-        maptypes.vector.normal.map,
-        {
-          zoom: 10,
-          center: { lat: lat, lng: long }
-        });
 
-	var marker = new H.map.Marker({ lat: lat, lng: long });
+function moveMapToBerlin(map){
+  map.setCenter({lat:37.871540, lng:32.498914});
+  map.setZoom(14);
+}
 
-	// Add the marker to the map:
-	map.addObject(marker);
+
+var platform = new H.service.Platform({
+  'apikey': 'REQsqLxTIZdnGeVV8Dvsq4P_QY8bSBdXVXfbDAGjmLI'
+});
+var defaultLayers = platform.createDefaultLayers();
+
+//Step 2: initialize a map - this map is centered over Europe
+var map = new H.Map(document.getElementById('map'),
+  defaultLayers.vector.normal.map,{
+  center: {lat:50, lng:5},
+  zoom: 4,
+  pixelRatio: window.devicePixelRatio || 1
+});
+
+window.addEventListener('resize', () => map.getViewPort().resize());
+
+
+var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+
+
+var ui = H.ui.UI.createDefault(map, defaultLayers);
+
+window.onload = function () {
+  moveMapToBerlin(map);
+}
+
 
 </script>
 </body>
